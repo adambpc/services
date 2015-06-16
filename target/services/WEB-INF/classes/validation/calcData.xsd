@@ -1,0 +1,85 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="stringtype">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="inttype">
+		<xs:restriction base="xs:positiveInteger" />
+	</xs:simpleType>
+
+	<xs:complexType name="calcElementType">
+		<xs:sequence>
+			<xs:element name="baseMiles" type="stringtype" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="partType" mixed="true">
+		<xs:sequence>
+			<xs:any maxOccurs="unbounded" processContents="lax" />
+		</xs:sequence>
+		<xs:attribute name="partname" type="stringtype" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="calcDataType" mixed="true">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="part" type="partType" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xs:sequence>
+				<xs:element name="schemeCode" type="stringtype" />
+				<xs:element name="renewalOrNew" type="stringtype" />
+				<xs:element name="currentPaymentMethod" type="stringtype" />
+				<xs:element name="includeLegal" type="stringtype" />
+				<xs:element name="includeKeys" type="stringtype" />
+				<xs:element name="includeBreakdown" type="stringtype" />
+				<xs:element name="breakdownLevel" type="stringtype" />
+				<xs:element name="includeGadget" type="stringtype" />
+				<xs:element name="frequency" type="stringtype" />
+				<xs:element name="loading" type="stringtype" />
+				<xs:element name="value" type="stringtype" />
+				<xs:element name="volExcessDiscountBand" type="stringtype" />
+				<xs:element name="coverStartDate" type="stringtype" />
+				<xs:element name="coverStartTime" type="stringtype" />
+				<xs:element name="coverStartDateTime" type="stringtype" />
+				<xs:element name="brand" type="stringtype" />
+				<xs:element name="owner" type="stringtype" />
+				<xs:element name="product" type="stringtype" />
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="registrationNumber" type="stringtype" />
+				<xs:element name="make" type="stringtype" />
+				<xs:element name="model" type="stringtype" />
+				<xs:element name="chassis" type="stringtype" />
+				<xs:element name="engineCapacity" type="stringtype" />
+				<xs:element name="transmission" type="stringtype" />
+				<xs:element name="capacityBand" type="stringtype" />
+				<xs:element name="groupCode" type="stringtype" />
+				<xs:element name="fuelType" type="stringtype" />
+				<xs:element name="yearOfMake" type="stringtype" />
+				<xs:element name="vehicleAge" type="stringtype" />
+				<xs:element name="dateOfPurchase" type="stringtype" />
+				<xs:element name="monthsOwned" type="stringtype" />
+				<xs:element name="valuation" type="stringtype" />
+				<xs:element name="noOfSeats" type="stringtype" />
+				<xs:element name="drivingPosition" type="stringtype" />
+				<xs:element name="imported" type="stringtype" />
+				<xs:element name="modified" type="stringtype" />
+				<xs:element name="securityTracker" type="stringtype" />
+				<xs:element name="modificationDetails" type="stringtype" />
+				<xs:element name="registeredOwner" type="stringtype" />
+				<xs:element name="registeredOwnerSelect" type="stringtype" />
+				<xs:element name="registeredOwnerOther" type="stringtype" />
+				<xs:element name="registeredKeeper" type="stringtype" />
+				<xs:element name="registeredKeeperSelect" type="stringtype" />
+				<xs:element name="registeredKeeperOther" type="stringtype" />
+				<xs:element name="mainUser" type="stringtype" />
+				<xs:element name="securityDevices" type="stringtype" />
+				<xs:element name="securityDevicesCode" type="stringtype" />
+				<xs:element name="originalVehicleKey" type="stringtype" />
+				<xs:element name="vehicleKey" type="stringtype" />
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="calcData" type="calcDataType" />
+</xs:schema>

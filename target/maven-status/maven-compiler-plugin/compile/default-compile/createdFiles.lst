@@ -1,0 +1,15 @@
+com/bpc/services/util/IsoUtils.class
+com/bpc/services/messaging/JmsApplication.class
+com/bpc/services/resource/DateResource.class
+com/bpc/services/util/HttpTransportUtil.class
+com/bpc/services/service/MarketObserverThread.class
+com/bpc/services/forex/Market.class
+com/bpc/services/init/ApplicationInitialization.class
+com/bpc/services/util/DateUtils.class
+com/bpc/services/service/DateService.class
+com/bpc/services/util/TransformerUtils.class
+com/bpc/services/service/MarketService$1.class
+com/bpc/services/resource/MarketResource.class
+com/bpc/services/util/XmlUtils.class
+com/bpc/services/util/FileUtils.class
+com/bpc/services/service/MarketService.class
