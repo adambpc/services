@@ -8,11 +8,15 @@
         <param-value>/WEB-INF/classes/log4j2.xml</param-value>
     </context-param>
     <listener>
-		<listener-class>com.bpc.services.init.ApplicationInitialization</listener-class>
+		<listener-class>com.bpc.services.init.MyContextListener</listener-class>
 	</listener>
 	<servlet>
 		<servlet-name>jersey-servlet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.bpc.services.init.MyResourceConfig</param-value>
+		</init-param>
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>
 			<param-value>com.bpc.services.forex;com.bpc.services.resource;com.bpc.services.service</param-value>

@@ -1,5 +1,6 @@
 package com.bpc.services.resource;
 
+import javax.inject.Singleton;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,17 +14,16 @@ import org.glassfish.jersey.media.sse.SseFeature;
 import com.bpc.services.service.MarketObserverThread;
 import com.bpc.services.service.MarketService;
 
+@Singleton
 @Path("marketservice")
-public class MarketResource  {
-	
+public class MarketResource {	
 	@GET
 	@Path("/stream_price")
 	@Produces(SseFeature.SERVER_SENT_EVENTS)
-	public EventOutput getServerSentEvents(@Context ServletContext context, @QueryParam("pair") String sym){
-		MarketService marketService = (MarketService) context.getAttribute(sym.toUpperCase());
-		EventOutput eventOutput = new EventOutput();
-		MarketObserverThread thread = new MarketObserverThread(eventOutput, marketService);
-		thread.run();
+	public EventOutput getServerSentEvents(@Context ServletContext context, @QueryParam("sym") String sym){
+		final EventOutput eventOutput = new EventOutput();
+		final MarketService marketService = (MarketService) context.getAttribute(sym.toUpperCase());
+		new Thread( new MarketObserverThread(eventOutput, marketService) ).start();
 		return eventOutput;
 	}
 }

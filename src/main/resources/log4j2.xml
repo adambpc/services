@@ -23,5 +23,9 @@
 			<AppenderRef ref="file-dateService" level="all"/>
       		<AppenderRef ref="Console" level="all"/>
 		</Logger>
+		 <Logger name="com.bpc.services.market" additivity="false">
+			<AppenderRef ref="file-marketService" level="all"/>
+      		<AppenderRef ref="Console" level="all"/>
+		</Logger>
   </Loggers>
 </Configuration>

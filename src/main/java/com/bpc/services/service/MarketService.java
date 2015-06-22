@@ -9,9 +9,14 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bpc.services.messaging.JmsApplication;
 
 public class MarketService extends Observable {
+	
+	private static final Logger logger = LogManager.getLogger("com.bpc.services.market");
 	
 	//connect to the PriceStreamingService via JMS.
 	//receive messages and then call update() on the listening threads
@@ -25,8 +30,7 @@ public class MarketService extends Observable {
                 try {
                     if (message instanceof TextMessage) {
                         TextMessage textMessage = (TextMessage) message;
-                        System.out.println("Received message:\n"
-                                + textMessage.getText() + "");
+//                      System.out.println("Received message:\n" + textMessage.getText());
                         consumeMessage(textMessage.getText());
                     }
                 } catch (Exception e) {
@@ -35,7 +39,7 @@ public class MarketService extends Observable {
                 }
             }
         };
-        messagingApp = new JmsApplication(listener, currencyPair);
+        //messagingApp = new JmsApplication(listener, currencyPair);
 	}
 	
 	public void consumeMessage(String text){

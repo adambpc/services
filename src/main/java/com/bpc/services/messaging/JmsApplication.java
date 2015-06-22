@@ -11,7 +11,6 @@ public class JmsApplication {
     private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
     Connection connection = null;
-    java.util.Queue<String> updatesQueue;
     
     public JmsApplication(MessageListener listener, String currencyPair){
     	try {

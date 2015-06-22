@@ -3,10 +3,9 @@ package com.bpc.services.init;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
 import com.bpc.services.service.MarketService;
 
-public class ApplicationInitialization implements ServletContextListener {
+public class MyContextListener implements ServletContextListener {
 
 	public void contextDestroyed(ServletContextEvent arg0) {
 		// TODO Auto-generated method stub
