@@ -31,10 +31,12 @@ public class MarketObserverThread implements Observer, Runnable {
 			OutboundEvent event = builder.build();
 			eventOutput.write(event);
 			System.out.println(">>>>>>SSE CLIENT HAS BEEN REGISTERED!");
+			Thread.sleep(500);
 			marketService.addObserver(this);
 			while(!eventOutput.isClosed()){
 				if(!updatesQ.isEmpty()){
 					pushUpdate(updatesQ.dequeue());
+					Thread.sleep(200);
 				}
 			}
 			System.out.println("<<<<<<<SSE CLIENT HAS BEEN DEREGISTERED!");
@@ -53,9 +55,10 @@ public class MarketObserverThread implements Observer, Runnable {
 	
 	private void pushUpdate(String message){
 		if(!eventOutput.isClosed()){
-			final OutboundEvent.Builder eventBuilder = new OutboundEvent.Builder();
-			eventBuilder.data(String.class, message);
-			final OutboundEvent event = eventBuilder.build();
+			OutboundEvent.Builder builder = new OutboundEvent.Builder();
+			builder.mediaType(MediaType.APPLICATION_JSON_TYPE);
+			builder.data(String.class, message);
+			OutboundEvent event = builder.build();
 			try {
 				eventOutput.write(event);
 			} catch (IOException e) {

@@ -4,6 +4,8 @@
 package com.bpc.services.service;
 
 import java.util.Observable;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -39,7 +41,7 @@ public class MarketService extends Observable {
                 }
             }
         };
-        //messagingApp = new JmsApplication(listener, currencyPair);
+        messagingApp = new JmsApplication(listener, currencyPair);
 	}
 	
 	public void consumeMessage(String text){

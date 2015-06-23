@@ -1,13 +1,13 @@
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 	<display-name>BlueprintCapital Services</display-name>
-    <context-param>
-        <param-name>log4jConfiguration</param-name>
-        <param-value>/WEB-INF/classes/log4j2.xml</param-value>
-    </context-param>
-    <listener>
+	<context-param>
+		<param-name>log4jConfiguration</param-name>
+		<param-value>/WEB-INF/classes/log4j2.xml</param-value>
+	</context-param>
+	<listener>
 		<listener-class>com.bpc.services.init.MyContextListener</listener-class>
 	</listener>
 	<servlet>
@@ -22,6 +22,7 @@
 			<param-value>com.bpc.services.forex;com.bpc.services.resource;com.bpc.services.service</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jersey-servlet</servlet-name>

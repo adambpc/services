@@ -3,7 +3,6 @@ com/bpc/services/messaging/JmsApplication.class
 com/bpc/services/resource/DateResource.class
 com/bpc/services/util/HttpTransportUtil.class
 com/bpc/services/service/MarketObserverThread.class
-com/bpc/services/init/ApplicationInitialization.class
 com/bpc/services/util/DateUtils.class
 com/bpc/services/init/MyResourceConfig.class
 com/bpc/services/service/UpdatesQueue.class
@@ -13,4 +12,5 @@ com/bpc/services/service/MarketService$1.class
 com/bpc/services/resource/MarketResource.class
 com/bpc/services/util/XmlUtils.class
 com/bpc/services/util/FileUtils.class
+com/bpc/services/init/MyContextListener.class
 com/bpc/services/service/MarketService.class
